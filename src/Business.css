@@ -1,0 +1,9 @@
+.restaurantName {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.addressAndRatings {
+	display: grid;
+	justify-content: space-evenly;
+}

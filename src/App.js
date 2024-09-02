@@ -1,22 +1,25 @@
+import {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SearchBar from "./SearchBar.js";
+import Business from "./Business.js";
+import yelpAPI from "./yelp.mjs";
 
 function App() {
+	const [formObject, setFormObject] = useState("");
+	const handleFormData = data => {
+		const [cuisineType, location] = data;
+		const yelpObject = new yelpAPI(cuisineType, location);
+		yelpObject.yelpRestaurants().then( x => setFormObject(x) );
+	};
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+				<SearchBar passChildFormData={handleFormData}/>
+				{formObject ? formObject.map(Business): "WTF"}
+
+				
       </header>
     </div>
   );
