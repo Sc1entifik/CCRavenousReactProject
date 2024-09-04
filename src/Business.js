@@ -3,16 +3,14 @@ import "./Business.css";
 const Business = (restaurantObject) => {
 	const restaurantTypes = restaurantObject.categories.map((x => `${x.title} `)); //Needed because categories returns a list of varying number of objects which have varying cuisine type names.
 	return (
-		<div>
+		<div className="restaurantCard">
+			<p className="restaurantName">{restaurantObject.name}</p>
 			<img src={restaurantObject.image_url} alt="front of restaurant"/>
-			<p className="reasturantName">{restaurantObject.name}</p>
-			<div className="addressAndRatings">
-				<p>{restaurantObject.location.address1}</p>
-				<p>{restaurantTypes}</p>
-				<p>{restaurantObject.location.city}</p>
-				<p>{restaurantObject.rating}</p>
-				<p>{restaurantObject.location.state} {restaurantObject.location.zipcode}</p>
-				<p>{restaurantObject.review_count}</p>
+			<p className="address">{restaurantObject.location.address1}<br/>{restaurantObject.location.city}, {restaurantObject.location.state} {restaurantObject.location.zip_code}</p>
+			<div className="ratings">
+				<p>Categories: {restaurantTypes}</p>
+				<p>Rating: {restaurantObject.rating}</p>
+				<p>Reviews: {restaurantObject.review_count}</p>
 			</div>
 		</div>
 	);

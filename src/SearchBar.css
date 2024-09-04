@@ -1,0 +1,24 @@
+.searchBar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 60vh;
+	background-image: url("./deliciousLookingFood.png");
+	background-size: cover;
+	
+}
+
+
+.inputField {
+	margin-right: 2ch;
+	width: 20vw;
+	height: 2ch;
+	font-size: 1.35rem;
+}
+
+
+.submitButton {
+	font-size: 1.35rem;
+	width: 17vw;
+}

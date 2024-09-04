@@ -25,7 +25,7 @@ class yelpAPI {
 		const searchUrl = `${yelpAPI.apiUrl}term=${this.cuisineType}&location=${this.location}`;
 		const headers = {
 			"accept": "application/json",
-			"Authorization": "Bearer _rN335oDIayl-QOSOuAYICycML4PmRBi0m25wFKW2QHw9UZRYrr83ihcf8gKwxBqks0XT2NysY9_ku-J417R9hfQLGYvzcDugVNhqKPjzeonnGBCIvyYMMAFJvLPZnYx"
+			"Authorization": `Bearer ${yelpAPI.apiKey}`, 
 		};
 		const options = {
 			method: "GET",
@@ -37,6 +37,5 @@ class yelpAPI {
 			.catch(err => err);
 	}
 }
-
 
 export default yelpAPI;
