@@ -9,9 +9,10 @@ import yelpAPI from "./yelp.mjs";
 
 function App() {
 	const [formObject, setFormObject] = useState("");
+
 	const handleFormData = data => {
-		const [cuisineType, location] = data;
-		const yelpObject = new yelpAPI(cuisineType, location);
+		const [cuisineType, location, sortCriteria] = data;
+		const yelpObject = new yelpAPI(cuisineType, location, sortCriteria);
 		yelpObject.yelpRestaurants().then( x => setFormObject(x) );
 	};
 
@@ -21,7 +22,7 @@ function App() {
 				<RavenousAbout />
 
 				<div className="restaurantGrid">
-					{formObject && formObject.map(Business)}
+					{formObject && formObject.map(x => <Business key={x.id} restaurantObject={x}/>)}
 				</div>
     </div>
   );

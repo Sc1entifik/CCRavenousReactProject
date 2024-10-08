@@ -3,9 +3,10 @@ class yelpAPI {
 	static apiUrl = "https://api.yelp.com/v3/businesses/search?";
 
 
-	constructor(cuisineType, location) {
+	constructor(cuisineType, location, sortCriteria) {
 		this.cuisineType = this.#sanitizeInput(cuisineType);
 		this.location = this.#sanitizeInput(location);
+		this.sortCriteria = sortCriteria;
 	}
 
 
@@ -20,9 +21,9 @@ class yelpAPI {
 		return sanitizedInput.toLowerCase();
 	}
 
-
+	//returns a promise object that should resolve to a json object.
 	yelpRestaurants() {
-		const searchUrl = `${yelpAPI.apiUrl}term=${this.cuisineType}&location=${this.location}`;
+		const searchUrl = `${yelpAPI.apiUrl}term=${this.cuisineType}&location=${this.location}&sort_by=${this.sortCriteria}`;
 		const headers = {
 			"accept": "application/json",
 			"Authorization": `Bearer ${yelpAPI.apiKey}`, 
@@ -34,7 +35,7 @@ class yelpAPI {
 		return fetch(searchUrl, options)
 			.then(response => response.json())
 			.then(response => response.businesses)
-			.catch(err => err);
+			.catch(err => console.error(err));
 	}
 }
 

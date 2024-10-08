@@ -12,7 +12,7 @@
 
 .ratings {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	justify-content: center;
 	column-gap: 1rem;
 	font-size: 1.3rem;

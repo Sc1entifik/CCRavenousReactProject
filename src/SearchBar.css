@@ -2,11 +2,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100vw;
+	width: auto;
 	height: 60vh;
 	background-image: url("./deliciousLookingFood.png");
 	background-size: cover;
-	
 }
 
 
@@ -21,4 +20,47 @@
 .submitButton {
 	font-size: 1.35rem;
 	width: 17vw;
+}
+
+
+.sort-options {
+	display: flex;
+	justify-content: space-evenly;
+	font-size: 2rem;
+	color: hsl(240, 95%, 50%);
+}
+
+.sort-options input[type="radio"]:checked + label {
+	color: red;
+}
+
+
+label {
+	background-color: hsl(240, 0%, 0%);
+	border-radius: 5%;
+	padding: .5rem;
+}
+
+label:hover {
+	background-color: hsl(240, 0%, 100%);
+}
+
+.sort-option {
+	opacity: 0;
+}
+
+#sort-option-0:checked + label {
+	color: red;
+}
+
+#sort-option-1:checked + label {
+	color: red;
+}
+
+#sort-option-2:checked + label {
+	color: red;
+}
+
+#sort-option-3:checked + label {
+	color: red;
 }
